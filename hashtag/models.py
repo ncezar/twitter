@@ -5,8 +5,6 @@ from django.utils import timezone
 # Create your models here.
 class Hashtag(models.Model):
         message = models.TextField()
-        created_date=  models.DateTimeField(default=timezone.now)
-        author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
         def publish(self):
             self.created_date = timezone.now()
@@ -14,3 +12,8 @@ class Hashtag(models.Model):
 
         def __str__(self):
             return self.message
+
+class Tweet(models.Model):
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    text = models.CharField(max_length=160)
+    created_at = models.DateTimeField(auto_now_add=True)

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hashtag',
+    
+
 ]
 
 MIDDLEWARE = [
@@ -120,3 +122,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# OAUTH_TOKENS_HISTORY = True # to keep in DB expired access tokens
+# OAUTH_TOKENS_TWITTER_CLIENT_ID = '' # application ID
+# OAUTH_TOKENS_TWITTER_CLIENT_SECRET = '' # application secret key
+# OAUTH_TOKENS_TWITTER_USERNAME = '' # user login
+# OAUTH_TOKENS_TWITTER_PASSWORD = '' # user password
