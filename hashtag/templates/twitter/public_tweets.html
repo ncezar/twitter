@@ -1,0 +1,44 @@
+<html>
+  <body>
+    <head>
+        <title>Twitter</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    </head>
+    <body>
+      <div class="page-header">
+          <h1><a href="/">Hashtags</a></h1>
+
+      </div>
+
+      <div>
+        <h1>Timeline</h1>
+
+    <table style="width:100%">
+      <tr>
+        <th>User</th>
+        <th>Message</th>
+        <th>Created at</th>
+
+      </tr>
+         {% for tweet in public_tweets %}
+
+            <tr>
+              <td>  {{ tweet.user.name}} </td>
+              <td>  {{ tweet.text}} </td>
+              <td>  {{ tweet.created_at}} </td>
+
+
+            </tr>
+
+
+
+      {% endfor %}
+
+
+    </table>
+
+</body>
+</html>

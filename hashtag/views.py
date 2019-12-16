@@ -8,7 +8,7 @@ from django.views.generic.list import ListView
 from django.views import generic
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
+import tweepy
 
 # Create your views here.
 
@@ -16,8 +16,18 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 def hashtag_list(request):
     return render(request, 'twitter/hashtag_list.html', {})
 
-def posts(request):
-    return render(request, 'twitter/filter_list.html', {})
+def home_timeline(request):
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    api = tweepy.API(auth)
+
+    #public_tweets = api.home_timeline()
+    #date_since="2019-12-01"
+    search_words = "#prom"
+    tweets = api.search(search_words, lang="en", rpp=20)
+
+    return render(request, 'twitter/public_tweets.html', {'public_tweets': tweets})
 
 def cadastro(request): #CadastroCreate
     if request.method=='POST':
