@@ -23,9 +23,10 @@ def home_timeline(request):
     api = tweepy.API(auth)
 
     #public_tweets = api.home_timeline()
-    #date_since="2019-12-01"
-    search_words = "#prom"
-    tweets = api.search(search_words, lang="en", rpp=20)
+    # date_since="2019-12-01"
+    search_words = request.GET.get('message')
+    #print(search)
+    tweets = api.search(search_words, lang="en", rpp=30)
 
     return render(request, 'twitter/public_tweets.html', {'public_tweets': tweets})
 

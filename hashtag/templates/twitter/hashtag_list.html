@@ -19,7 +19,7 @@
           {% if object_list != None %}
           <table style="width:100%">
             <tr>
-              <th>Message</th>
+              <th>Hashtag</th>
 
 
             </tr>
@@ -27,7 +27,7 @@
 
                   <tr>
 
-                    <td> <a href="{% url 'home_timeline' %}"> {{hashtag.message}} </td>
+                    <td> <a href="{% url 'home_timeline' %}?message={{hashtag.message}}"> {{hashtag.message}} </td>
 
 
                   </tr>
