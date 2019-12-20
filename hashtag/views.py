@@ -9,6 +9,7 @@ from django.views import generic
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import tweepy
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -26,7 +27,7 @@ def home_timeline(request):
     # date_since="2019-12-01"
     search_words = request.GET.get('message')
     #print(search)
-    tweets = api.search(search_words, lang="en", rpp=30)
+    tweets = api.search(search_words, lang="en", rpp=100, result_type="recent")
 
     return render(request, 'twitter/public_tweets.html', {'public_tweets': tweets})
 
@@ -52,10 +53,17 @@ class CadastroListView(ListView):
         context = super(CadastroListView, self).get_context_data(**kwargs)
         return context
 
+class CadastroDelete(DeleteView):
+    model = Hashtag
+    template_name="twitter/hashtag_confirm_delete.html"
+    success_url = reverse_lazy('hashtag_list')
+
+
+
+
 class HashtagListView(ListView):
     model = Tweet
     template_name = "twitter/filter_list.html"
-
 
     def get_context_data(self, **kwargs):
         #context = super().get_context_data(**kwargs)

@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Twitter</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    </head>
+    <body>
+      <form action="" method="post">{% csrf_token %}
+          <h4>Tem certeza que deseja deletar a hashtag "{{ hashtag.message }}"?</h4>
+          <input type="submit" value="Confirmar" />
+          <a href='/'> Cancelar </a>
+      </form>
+  </body>
+</html>

@@ -1,11 +1,12 @@
-
+{% load static %}
 <html>
     <head>
         <title>Twitter</title>
 
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
+        <link rel="stylesheet" href="{% static 'css/hashtag.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div class="page-header">
@@ -14,24 +15,21 @@
         </div>
 
         <div>
-          <h1>Lista de Cadastros</h1>
+          <h1>Lista de Hashtags</h1>
 
           {% if object_list != None %}
           <table style="width:100%">
             <tr>
               <th>Hashtag</th>
-
+              <th>Deletar</th>
 
             </tr>
              {% for hashtag in object_list %}
 
                   <tr>
-
-                    <td> <a href="{% url 'home_timeline' %}?message={{hashtag.message}}"> {{hashtag.message}} </td>
-
-
+                    <td> <a href="{% url 'home_timeline' %}?message={{hashtag.message}}"> {{hashtag.message}}  </td>
+                    <td> <a href="{% url 'cadastro_delete' hashtag.id %}">  <button class="btn"><i class="fa fa-trash"></i></button> </a></td>
                   </tr>
-
 
 
             {% endfor %}
