@@ -18,8 +18,8 @@ def hashtag_list(request):
     return render(request, 'twitter/hashtag_list.html', {})
 
 def home_timeline(request):
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_secret)
+    auth = tweepy.OAuthHandler("IOBoByzw7sXqXe8zrSBL4Iyvq", "4DEC0VOGuevexfBTfy2bERIX8fRQtX5kGQPZ6Nhz3rxupgrb5c")
+    auth.set_access_token("1191824923301482501-Hr3h5O0QtIt7ONdMEvbPMMhRca4iuE", "1uf2tlpLCmQwwkT2zxVWcOtPTExSkm4TyjPvwqSYvR79y")
 
     api = tweepy.API(auth)
 
