@@ -27,7 +27,7 @@ def home_timeline(request):
     # date_since="2019-12-01"
     search_words = request.GET.get('message')
     #print(search)
-    tweets = api.search(search_words, lang="en", rpp=100, result_type="recent")
+    tweets = api.search(search_words, lang="en", rpp=100, result_type="recent", wait_on_rate_limit=True)
 
     return render(request, 'twitter/public_tweets.html', {'public_tweets': tweets})
 
