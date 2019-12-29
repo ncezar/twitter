@@ -27,7 +27,7 @@ SECRET_KEY = '=a1$79@3^z!eds%ezuc6*#!3@+zp-@55d-3dje22md0+4e^^lp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'twitter-django.herokuapp.com']
 
 
 # Application definition
