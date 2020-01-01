@@ -54,6 +54,7 @@ python manage.py test
 
 ## Deployment
 
+```
 1- Criar uma conta na Heroku
 2- Dentro do diretório do seu projeto, logue na Heroku:
   heroku login
@@ -66,3 +67,5 @@ python manage.py test
   git commit -m "Deploy da aplicação"
   git push -u heroku master
 7- Acesse o endereço do app da heroku
+
+```
